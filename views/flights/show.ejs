@@ -1,14 +1,21 @@
 <%- include('../partials/header') %>
 <form action="/flights/<%=flight._id%>/destinations" method="POST">
     <label >Destination</label>
-    <select name="airport" >
+    <!-- <select name="airport" >
         
         <option value='AUS'>AUS</option>
         <option value='DFW'>DFW</option>
         <option value='DEN'>DEN</option>
         <option value='LAX'>LAX</option>
         <option value='SAN'>SAN</option>
-    </select><br>
+    </select> -->
+    <select name="airport">
+        <% airports.forEach(airport => { %>
+            <%if(flight.airport !== airport){%>
+                <option value="<%= airport %>"><%= airport %></option>
+                <% }%> 
+        <% }) %>
+    <br>
     <label >Arrival</label>
     <input type="datetime-local" name="arrival" >
     <button type="submit" >Submit</button>
@@ -24,7 +31,7 @@
         </tr>
     </thead>
     <tbody>
-        <% flight.destinations.forEach(destination => { %> 
+        <% nDestination.forEach(destination => { %> 
             <tr>
                 <td><%= destination.airport %></td>
                 <td><%= destination.arrival %></td>

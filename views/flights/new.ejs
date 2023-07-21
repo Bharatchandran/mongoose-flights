@@ -1,19 +1,31 @@
 <%- include('../partials/header') %>
    <form action="/flights/" method="POST">
     <label>AirLine : </label>
-    <select name="airline" >
+    <!-- <select name="airline" >
         <option value='American'>American</option>
         <option value='Southwest'>Southwest</option>
         <option value='United'>United</option>
-    </select><br>
+    </select> -->
+    <select name="airline">
+        <% airlines.forEach(airline => { %>
+          <option value="<%= airline %>"><%= airline %></option>
+        <% }) %>
+    </select>
+    <br>
     <label>Airport : </label>
-    <select name="airport" >
-        <option value='AUS'>AUS</option>
+        <select name="airport">
+            <% airports.forEach(airport => { %>
+              <option value="<%= airport %>"><%= airport %></option>
+            <% }) %>
+        </select>
+    <!-- <select name="airport" > -->
+        <!-- <option value='AUS'>AUS</option>
         <option value='DFW'>DFW</option>
         <option value='DEN'>DEN</option>
         <option value='LAX'>LAX</option>
-        <option value='SAN'>SAN</option>
-    </select><br>
+        <option value='SAN'>SAN</option> -->
+    <!-- </select> -->
+    <br>
     <label>Flight No :</label>
     <input type="number" name="flightNo"><br>
     <label>Departs : </label>
