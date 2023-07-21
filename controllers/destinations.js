@@ -1,17 +1,19 @@
 const Flight = require('../models/flight');
 
 module.exports = {
-    show
+    create
 }
 
-async function show(req, res) {
+async function create(req, res) {
     const flight = await Flight.findById(req.params.id);
     flight.destinations.push(req.body);
     try {
         await flight.save()
+        console.log("saved")
     } catch (err) {
         console.log(err)
     }
-    res.render('flights/show',{title:"test"})
+    res.redirect(`/flights/${flight._id}`)
 
 }
+
