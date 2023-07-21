@@ -1,17 +1,25 @@
 <%- include('../partials/header') %>
-    <ul>
-        <% flights.forEach(flight => { %>
-            <li>
-                <%= flight.airline %>
-                -      
-                <%= flight.airport %>
-                -      
-                <%= flight.flightNo %>
-                -      
-                <%= flight.departs %>      
-            </li>
+<table>
+    <thead>
+        <tr>
+            <th>Airline:</th>
+            <th>Airport:</th>
+            <th>Flight No:</th>
+            <th>Departure Date:</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% flights.forEach(flight => { %> <!--looping through the object to get one flight-->
+            <tr>
+                <td><%= flight.airline %></td>
+                <td><%= flight.airport %></td>
+                <td><%= flight.flightNo %></td>
+                <td><%= flight.departs %></td>
+                <td><a href="/flights/<%=flight._id%>/show">Link</a></td>
+            </tr>
         <% }) %>
-    </ul>
-    
+    </tbody>
+</table>
 
 <%- include('../partials/footer') %>
