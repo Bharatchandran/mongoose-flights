@@ -8,14 +8,14 @@
     </select> -->
     <select name="airline">
         <% airlines.forEach(airline => { %>
-          <option value="<%= airline %>"><%= airline %></option>
+          <option value="<%= airline %>"><%=airline%></option>
         <% }) %>
     </select>
     <br>
     <label>Airport : </label>
         <select name="airport">
             <% airports.forEach(airport => { %>
-              <option value="<%= airport %>"><%= airport %></option>
+              <option value="<%= airport %>"><%=airport%></option>
             <% }) %>
         </select>
     <!-- <select name="airport" > -->

@@ -6,3 +6,33 @@ body {
 a {
   color: #00B7FF;
 }
+/* .add-destination-flight{
+  display: flex;
+  align-items: center;
+  /* justify-content: space-around; */
+/* }
+
+.add-destination-flight div{
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.add-destination-flight div input,select {
+  margin-left: 10px;
+}   */ 
+
+.input-form{
+  display: flex;
+  align-items: center;
+}
+
+.input-form div{
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.input-form div input,select {
+  margin-left: 10px;
+}  

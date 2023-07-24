@@ -1,4 +1,5 @@
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket')
 
 module.exports = {
     index,
@@ -49,14 +50,17 @@ async function create(req, res) {
 
 async function show(req,res) {
     const flight =  await Flight.findById(req.params.id);
+    const tickets = await Ticket.find({flight: flight._id})
     const airports = Flight.schema.path('airport').enumValues;
-
+    
     nDestination = await flight.destinations;
     nDestination = nDestination.sort((a,b) => a.arrival - b.arrival);
     res.render('flights/show', {
         flight,
-        title:"test",
+        title:"Flight Details",
         airports, 
-        nDestination
+        nDestination,
+        tickets
     });
 }
+
